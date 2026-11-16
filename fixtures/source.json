@@ -1,0 +1,22 @@
+{
+  "stages": {
+    "opening": {
+      "routes": {
+        "/availability?department=D1": {
+          "contentType": "text/html; charset=utf-8",
+          "body": "<!doctype html><html><body><script type=\"application/json\" class=\"source-record\">{\"slotId\": \"D1-am\", \"department\": \"D1\", \"date\": \"2026-11-17\", \"remaining\": 3, \"observedAt\": \"2026-11-16T08:00:00Z\", \"patientName\": \"Synthetic Patient\", \"certificate\": \"SYNTHETIC-0001\"}</script></body></html>",
+          "etag": "\"opening\""
+        }
+      }
+    },
+    "updated": {
+      "routes": {
+        "/availability?department=D1": {
+          "contentType": "text/html; charset=utf-8",
+          "body": "<!doctype html><html><body><script type=\"application/json\" class=\"source-record\">{\"slotId\": \"D1-am\", \"department\": \"D1\", \"date\": \"2026-11-17\", \"remaining\": 0, \"observedAt\": \"2026-11-16T09:00:00Z\", \"patientName\": \"Synthetic Other\", \"certificate\": \"SYNTHETIC-0002\"}</script></body></html>",
+          "etag": "\"updated\""
+        }
+      }
+    }
+  }
+}

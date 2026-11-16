@@ -1,20 +1,17 @@
 [
   {
-    "sourceId": "appointment-slots-demo-1",
-    "source": "sample-source",
-    "observedAt": "2026-11-16T09:00:00Z",
-    "label": "预约时段",
+    "sourceId": "D1-am",
+    "source": "服务时段观察器",
+    "observedAt": "2026-11-16T08:00:00Z",
+    "label": "D1",
     "attributes": {
-      "sample": true
-    }
-  },
-  {
-    "sourceId": "appointment-slots-demo-2",
-    "source": "sample-source",
-    "observedAt": "2026-11-16T09:05:00Z",
-    "label": "预约时段 2",
-    "attributes": {
-      "sample": true
+      "slotId": "D1-am",
+      "department": "D1",
+      "date": "2026-11-17",
+      "remaining": 3,
+      "observedAt": "2026-11-16T08:00:00Z",
+      "patientName": "Synthetic Patient",
+      "certificate": "SYNTHETIC-0001"
     }
   }
 ]
