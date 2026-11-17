@@ -8,8 +8,8 @@
 
 ## 业务消费
 
-`readOperations(repository)` 当前返回 product 和 rows，每行带 sourceId/source/observedAt/attributes。现有 CLI 和结构化导入用于本地运维；新增采集结果也需要让业务读取入口看到一致状态，必要的解释信息可扩展返回。原始来源身份与 observedAt 不是通用的业务版本、完整性或成功证明。来源接口契约是兼容边界，采集、状态管理和新业务表达由实现决定。
+`readOperations(repository, coverageStatus)` 返回 product、rows 与 coverage。rows 每行带 sourceId/source/observedAt 和仅含 slotId/department/date/remaining/observedAt 的 attributes，个人字段即使存在于历史记录也不导出；coverage 逐科室给出 confirmed/undetermined、安全原因与最近采集时间，服务台据此区分已确认与暂不可判定。现有 CLI 和结构化导入用于本地运维；新增采集结果也需要让业务读取入口看到一致状态，必要的解释信息可扩展返回。原始来源身份与 observedAt 不是通用的业务版本、完整性或成功证明。来源接口契约是兼容边界，采集、状态管理和新业务表达由实现决定。
 
 ## 采集诊断
 
-`src/availability-import.js` 连接来源读取、AttemptJournal 与业务导入；目前诊断会在解析前记录接收体，故诊断数据和业务库是两条独立持久路径。后续回放依靠 resource 与安全的采集状态识别失败范围，不要求保存个人字段或完整页面。
+`src/availability-import.js` 连接来源读取、AttemptJournal、覆盖状态与业务导入。诊断日志只记录 resource、安全采集状态（received/retry/failed/imported/undetermined）与分类原因，不保存接收体、个人字段或原始错误文本；`src/collection-status.js` 持久化各科室 confirmed/undetermined 状态。回放依靠 resource 与安全状态识别失败范围，不需要个人字段或完整页面。抓取或解析失败只产生 undetermined；部分页面失败时整科室不导入，只有覆盖完整且可解析的观测才进入业务库。

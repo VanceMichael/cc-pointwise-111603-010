@@ -9,9 +9,7 @@
       "department": "D1",
       "date": "2026-11-17",
       "remaining": 3,
-      "observedAt": "2026-11-16T08:00:00Z",
-      "patientName": "Synthetic Patient",
-      "certificate": "SYNTHETIC-0001"
+      "observedAt": "2026-11-16T08:00:00Z"
     }
   }
 ]

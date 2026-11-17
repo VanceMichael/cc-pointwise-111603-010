@@ -5,7 +5,12 @@
         "/availability?department=D1": {
           "contentType": "text/html; charset=utf-8",
           "body": "<!doctype html><html><body><script type=\"application/json\" class=\"source-record\">{\"slotId\": \"D1-am\", \"department\": \"D1\", \"date\": \"2026-11-17\", \"remaining\": 3, \"observedAt\": \"2026-11-16T08:00:00Z\", \"patientName\": \"Synthetic Patient\", \"certificate\": \"SYNTHETIC-0001\"}</script></body></html>",
-          "etag": "\"opening\""
+          "etag": "\"opening-d1\""
+        },
+        "/availability?department=D2": {
+          "contentType": "text/html; charset=utf-8",
+          "body": "<!doctype html><html><body><script type=\"application/json\" class=\"source-record\">{\"slotId\": \"D2-pm\", \"department\": \"D2\", \"date\": \"2026-11-17\", \"remaining\": 2, \"observedAt\": \"2026-11-16T08:05:00Z\", \"patientName\": \"Synthetic Patient Two\", \"certificate\": \"SYNTHETIC-1001\"}</script></body></html>",
+          "etag": "\"opening-d2\""
         }
       }
     },
@@ -14,7 +19,45 @@
         "/availability?department=D1": {
           "contentType": "text/html; charset=utf-8",
           "body": "<!doctype html><html><body><script type=\"application/json\" class=\"source-record\">{\"slotId\": \"D1-am\", \"department\": \"D1\", \"date\": \"2026-11-17\", \"remaining\": 0, \"observedAt\": \"2026-11-16T09:00:00Z\", \"patientName\": \"Synthetic Other\", \"certificate\": \"SYNTHETIC-0002\"}</script></body></html>",
-          "etag": "\"updated\""
+          "etag": "\"updated-d1\""
+        },
+        "/availability?department=D2": {
+          "contentType": "text/html; charset=utf-8",
+          "body": "<!doctype html><html><body><script type=\"application/json\" class=\"source-record\">{\"slotId\": \"D2-pm\", \"department\": \"D2\", \"date\": \"2026-11-17\", \"remaining\": 1, \"observedAt\": \"2026-11-16T09:05:00Z\", \"patientName\": \"Synthetic Other Two\", \"certificate\": \"SYNTHETIC-1002\"}</script></body></html>",
+          "etag": "\"updated-d2\""
+        }
+      }
+    },
+    "broken": {
+      "routes": {
+        "/availability?department=D1": {
+          "contentType": "text/html; charset=utf-8",
+          "body": "<!doctype html><html><body><script type=\"application/json\" class=\"source-record\">{\"slotId\": \"D1-am\", \"department\": \"D1\", \"patientName\": \"Synthetic Broken\", \"certificate\": \"SYNTHETIC-9001\" oops}</script></body></html>",
+          "etag": "\"broken-d1\""
+        },
+        "/availability?department=D2": {
+          "contentType": "text/html; charset=utf-8",
+          "body": "<!doctype html><html><body><script type=\"application/json\" class=\"source-record\">{\"slotId\": \"D2-pm\", \"department\": \"D2\", \"date\": \"2026-11-17\", \"remaining\": 2, \"observedAt\": \"2026-11-16T08:05:00Z\", \"patientName\": \"Synthetic Patient Two\", \"certificate\": \"SYNTHETIC-1001\"}</script></body></html>",
+          "etag": "\"broken-d2\""
+        }
+      }
+    },
+    "paged": {
+      "routes": {
+        "/availability?department=D1": {
+          "contentType": "text/html; charset=utf-8",
+          "body": "<!doctype html><html><body><script type=\"application/json\" class=\"source-record\">{\"slotId\": \"D1-am\", \"department\": \"D1\", \"date\": \"2026-11-17\", \"remaining\": 3, \"observedAt\": \"2026-11-16T08:00:00Z\", \"patientName\": \"Synthetic Patient\", \"certificate\": \"SYNTHETIC-0001\"}</script><a rel=\"next\" href=\"/availability?department=D1&page=2\">next</a></body></html>",
+          "etag": "\"paged-d1-1\""
+        },
+        "/availability?department=D1&page=2": {
+          "contentType": "text/html; charset=utf-8",
+          "body": "<!doctype html><html><body><script type=\"application/json\" class=\"source-record\">{\"slotId\": \"D1-noon\", \"department\": \"D1\", \"date\": \"2026-11-17\", \"remaining\": 1, \"observedAt\": \"2026-11-16T08:10:00Z\", \"patientName\": \"Synthetic Patient Three\", \"certificate\": \"SYNTHETIC-2001\"}</script></body></html>",
+          "etag": "\"paged-d1-2\""
+        },
+        "/availability?department=D2": {
+          "contentType": "text/html; charset=utf-8",
+          "body": "<!doctype html><html><body><script type=\"application/json\" class=\"source-record\">{\"slotId\": \"D2-pm\", \"department\": \"D2\", \"date\": \"2026-11-17\", \"remaining\": 2, \"observedAt\": \"2026-11-16T08:05:00Z\", \"patientName\": \"Synthetic Patient Two\", \"certificate\": \"SYNTHETIC-1001\"}</script></body></html>",
+          "etag": "\"paged-d2\""
         }
       }
     }
